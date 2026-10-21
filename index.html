@@ -6,7 +6,7 @@
 <meta name="description" content="Il Gran Caffè Gambrinus, dal 1860 in Piazza Trieste e Trento a Napoli.">
 <link rel="icon" href="assets/logo.png">
 <link rel="preload" as="image" href="assets/home-intro.jpg">
-<link rel="stylesheet" href="style.css?v=20261014i">
+<link rel="stylesheet" href="style.css?v=20261021a">
 </head>
 <body>
 <div class="home-root">
@@ -19,17 +19,20 @@
 <nav class="sheet"><a href="index.html">Il Caffè</a><a href="caffe.html">Il rito</a><a href="storia.html">La famiglia</a><a href="giornale.html">Il giornale</a></nav>
 
 <main>
-<!-- entrare nel caffè: le porte si aprono allo scroll -->
-<section class="door" aria-label="Ingresso">
-  <div class="door-pin">
-    <div class="door-room"><img src="assets/home-intro.jpg" alt="Le sale storiche del Gran Caffè Gambrinus"></div>
-    <div class="door-leaf l"><span class="door-word">Gran Caffè</span><i class="door-handle"></i></div>
-    <div class="door-leaf r"><span class="door-word">Gambrinus</span><i class="door-handle"></i></div>
-    <p class="door-top tag">Napoli · Piazza Trieste e Trento · dal 1860</p>
-    <p class="door-hint tag">Scorri per entrare<i></i></p>
-    <div class="door-inside">
+<!-- entrare nel caffè: la sala a tutto schermo, lo scroll ti porta dentro -->
+<section class="entry" aria-label="Ingresso">
+  <div class="entry-pin">
+    <div class="entry-img"><div class="entry-load"><img src="assets/home-intro.jpg" alt="Le sale storiche del Gran Caffè Gambrinus"></div></div>
+    <div class="entry-veil"></div>
+    <div class="entry-sign">
+      <p class="tag">Napoli · Piazza Trieste e Trento · dal 1860</p>
+      <h1><span>Gran Caffè</span><span>Gambrinus</span></h1>
+      <i class="rule"></i>
+    </div>
+    <p class="entry-hint tag">Scorri per entrare<i></i></p>
+    <div class="entry-inside">
       <p class="tag" style="color:var(--gold)">Benvenuti</p>
-      <h1>Il salotto<br><em>di Napoli.</em></h1>
+      <h2>Il salotto<br><em>di Napoli.</em></h2>
     </div>
   </div>
 </section>
@@ -97,6 +100,6 @@
 </footer>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
-<script src="main.js?v=20261014i"></script>
+<script src="main.js?v=20261021a"></script>
 </body>
 </html>

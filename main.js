@@ -25,20 +25,21 @@ function through(el) { const r = el.getBoundingClientRect(); return clamp((inner
 
 const scenes = [reveal];
 
-/* HOME — le porte del caffè */
-const door = $('.door');
-if (door) {
-  const L = $('.door-leaf.l'), R = $('.door-leaf.r'), room = $('.door-room'), top = $('.door-top'), hint = $('.door-hint'), inside = $('.door-inside');
+/* HOME — l'ingresso: la sala a tutto schermo, lo scroll ti porta dentro */
+const entry = $('.entry');
+if (entry) {
+  const img = $('.entry-img'), veil = $('.entry-veil'), sign = $('.entry-sign'), hint = $('.entry-hint'), inside = $('.entry-inside');
   scenes.push(() => {
-    const p = prog(door);
-    const o = inout(seg(p, .05, .55));
-    L.style.transform = `perspective(1400px) rotateY(${o * 86}deg) translateX(${-o * 8}%)`;
-    R.style.transform = `perspective(1400px) rotateY(${-o * 86}deg) translateX(${o * 8}%)`;
-    L.style.opacity = R.style.opacity = 1 - seg(p, .45, .6);
-    room.style.transform = `scale(${lerp(1.35, 1, ease(seg(p, .05, .9)))})`;
-    top.style.opacity = hint.style.opacity = 1 - seg(p, 0, .12);
-    inside.style.opacity = seg(p, .55, .75);
-    inside.style.transform = `translateY(${(1 - ease(seg(p, .55, .8))) * 60}px)`;
+    const p = prog(entry);
+    img.style.transform = `scale(${lerp(1, 1.5, ease(seg(p, 0, .9)))})`;
+    veil.style.opacity = 1 - .55 * inout(seg(p, .1, .7));
+    const s = seg(p, 0, .4);
+    sign.style.opacity = 1 - ease(s);
+    sign.style.transform = `scale(${1 + s * .4})`;
+    if (p > .02) hint.style.animation = 'none';
+    hint.style.opacity = 1 - seg(p, 0, .1);
+    inside.style.opacity = seg(p, .5, .7);
+    inside.style.transform = `translateY(${(1 - ease(seg(p, .5, .78))) * 60}px)`;
   });
 }
 
