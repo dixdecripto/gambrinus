@@ -27,7 +27,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .bar nav a{font:600 11px/1 Raleway;letter-spacing:.2em;text-transform:uppercase;position:relative;padding:6px 0}
 .bar nav a::after{content:'';position:absolute;left:0;right:100%;bottom:0;height:1px;background:currentColor;transition:right .5s var(--ease)}
 .bar nav a:hover::after,.bar nav a[aria-current]::after{right:0}
-.burger{display:none;font:600 11px/1 Raleway;letter-spacing:.2em;text-transform:uppercase;padding:12px;margin:-12px}
+.burger{display:none;font:600 11px/1 Raleway;letter-spacing:.2em;text-transform:uppercase;padding:12px;margin:-11px -6px}
 .sheet{position:fixed;inset:0;z-index:79;background:var(--blue);display:flex;flex-direction:column;justify-content:center;gap:10px;padding:var(--pad);clip-path:circle(0 at calc(100% - 40px) 30px);visibility:hidden;transition:clip-path .8s var(--ease),visibility 0s .8s}
 .sheet a{font:clamp(48px,12vw,90px)/1 Worcester;color:var(--ivory)}
 .menu-open .sheet{clip-path:circle(150% at calc(100% - 40px) 30px);visibility:visible;transition:clip-path .8s var(--ease)}
