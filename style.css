@@ -27,10 +27,10 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .bar nav a{font:600 11px/1 Raleway;letter-spacing:.2em;text-transform:uppercase;position:relative;padding:6px 0}
 .bar nav a::after{content:'';position:absolute;left:0;right:100%;bottom:0;height:1px;background:currentColor;transition:right .5s var(--ease)}
 .bar nav a:hover::after,.bar nav a[aria-current]::after{right:0}
-.burger{display:none;font:600 11px/1 Raleway;letter-spacing:.2em;text-transform:uppercase}
-.sheet{position:fixed;inset:0;z-index:79;background:var(--blue);display:flex;flex-direction:column;justify-content:center;gap:10px;padding:var(--pad);clip-path:circle(0 at calc(100% - 40px) 30px);transition:clip-path .8s var(--ease)}
+.burger{display:none;font:600 11px/1 Raleway;letter-spacing:.2em;text-transform:uppercase;padding:12px;margin:-12px}
+.sheet{position:fixed;inset:0;z-index:79;background:var(--blue);display:flex;flex-direction:column;justify-content:center;gap:10px;padding:var(--pad);clip-path:circle(0 at calc(100% - 40px) 30px);visibility:hidden;transition:clip-path .8s var(--ease),visibility 0s .8s}
 .sheet a{font:clamp(48px,12vw,90px)/1 Worcester;color:var(--ivory)}
-.menu-open .sheet{clip-path:circle(150% at calc(100% - 40px) 30px)}
+.menu-open .sheet{clip-path:circle(150% at calc(100% - 40px) 30px);visibility:visible;transition:clip-path .8s var(--ease)}
 @media(max-width:760px){.bar nav{display:none}.burger{display:block}}
 
 /* barra di avanzamento */
@@ -192,7 +192,7 @@ footer{background:var(--blue);color:var(--ivory);padding:16vh var(--pad) 40px;po
 .tl-rail span{position:absolute;inset:0;background:var(--gold);transform-origin:top;transform:scaleY(0)}
 .tl-item{display:grid;grid-template-columns:205px 1fr 1fr;gap:60px;align-items:start;padding:10vh 0}
 .tl-item .year{font:clamp(48px,4.6vw,80px)/1 Worcester;color:var(--gold);position:sticky;top:20vh}
-.tl-item h3{font-size:clamp(40px,4.5vw,80px);padding-left:40px}
+.tl-item h2{font-size:clamp(40px,4.5vw,80px);padding-left:40px}
 .tl-item p{max-width:440px;opacity:.82}
 .tl-item figure{grid-column:2/4;margin:30px 0 0 40px;height:56vh;overflow:hidden}
 .tl-item figure img{width:100%;height:120%;object-fit:cover}
@@ -231,13 +231,15 @@ footer{background:var(--blue);color:var(--ivory);padding:16vh var(--pad) 40px;po
   .chapter{bottom:14vh}.chapter.right{left:var(--pad);text-align:left}.chapter.right p{margin-left:0}
   .part b{font-size:8px;padding:5px 7px}
   .secrets figure{height:60vh}
-  .tl-rail{display:none}.tl-item{grid-template-columns:1fr;gap:16px;padding:6vh 0}.tl-item .year{position:static}.tl-item h3{padding:0}.tl-item figure{grid-column:auto;margin:10px 0 0;height:40vh}
+  .tl-rail{display:none}.tl-item{grid-template-columns:1fr;gap:16px;padding:6vh 0}.tl-item .year{position:static}.tl-item h2{padding:0}.tl-item figure{grid-column:auto;margin:10px 0 0;height:40vh}
   .people-grid{grid-template-columns:1fr}
   .jrow{grid-template-columns:1fr;gap:10px}.jrow .arrow{display:none}
   .foot-row{grid-template-columns:1fr}
 }
 @media(max-aspect-ratio:1/1){.layer.fit img{object-fit:fill;position:absolute;max-width:none;width:160vw;height:auto;left:50%;top:33%;transform:translate(-50%,-50%);-webkit-mask-image:radial-gradient(ellipse 50% 50% at 50% 50%,#000 55%,transparent 98%);mask-image:radial-gradient(ellipse 50% 50% at 50% 50%,#000 55%,transparent 98%)}.film-title{justify-content:flex-end;padding-bottom:16vh}.film-title h1{font-size:22vw}.part.minor{display:none!important}.vignette{background:linear-gradient(180deg,rgba(2,10,12,.75),transparent 30%,transparent 55%,rgba(2,10,12,.85))}.layer.fit{background:radial-gradient(ellipse at 50% 40%,#0b4e60,#04191f 75%)}}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}
+  /* senza animazioni gli elementi d'ingresso devono comparire già nello stato finale */
+  .entry-sign .tag,.entry-sign h1 span,.entry-hint{opacity:1;transform:none}.entry-sign .rule{width:min(240px,40vw)}}
 
 /* leggibilità dei testi sulle immagini: sfumatura uniforme della scena + ombra stretta sulle lettere */
 .vignette{background:linear-gradient(0deg,rgba(2,10,12,.7) 0%,rgba(2,10,12,.25) 22%,transparent 40%),linear-gradient(180deg,rgba(2,10,12,.45) 0%,transparent 25%),radial-gradient(ellipse at 50% 45%,transparent 50%,rgba(2,10,12,.55))}

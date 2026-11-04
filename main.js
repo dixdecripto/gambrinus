@@ -12,8 +12,11 @@ let lenis = null;
 if (!calm && window.Lenis && !location.search.includes('rec')) { lenis = new Lenis({ lerp: .085, wheelMultiplier: .9 }); }
 
 /* menu */
-$('.burger')?.addEventListener('click', () => document.body.classList.toggle('menu-open'));
-$$('.sheet a').forEach(a => a.addEventListener('click', () => document.body.classList.remove('menu-open')));
+const burger = $('.burger');
+const setMenu = open => { document.body.classList.toggle('menu-open', open); burger?.setAttribute('aria-expanded', open); };
+burger?.addEventListener('click', () => setMenu(!document.body.classList.contains('menu-open')));
+$$('.sheet a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+addEventListener('keydown', e => { if (e.key === 'Escape' && document.body.classList.contains('menu-open')) { setMenu(false); burger?.focus(); } });
 
 /* reveal */
 let pending = $$('[data-reveal]');
